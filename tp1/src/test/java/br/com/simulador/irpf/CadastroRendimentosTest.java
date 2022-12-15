@@ -48,7 +48,7 @@ public class CadastroRendimentosTest {
         try {
             simulador.cadastrarUmRendimento("", 2100F);
         } catch (DescricaoEmBrancoException ex){
-            assertEquals("Não foi possível cadastrar um redndimento com descrição em branco", ex.getMessage());
+            assertEquals("Não foi possível cadastrar um rendimento com descrição em branco", ex.getMessage());
         }
     }
 
@@ -57,7 +57,7 @@ public class CadastroRendimentosTest {
         try {
             simulador.cadastrarUmRendimento("Salário", -2100F);
         } catch (ValorRendimentoInvalidoException ex){
-            assertEquals("Não foi possível cadastrar um redndimento com valor inválido", ex.getMessage());
+            assertEquals("Não foi possível cadastrar um rendimento com valor inválido", ex.getMessage());
         }
     }
 
