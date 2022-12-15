@@ -2,7 +2,6 @@ package br.com.simulador.irpf;
 
 import br.com.simulador.irpf.exception.DescricaoEmBrancoException;
 import br.com.simulador.irpf.exception.ValorDeducaoInvalidoException;
-import br.com.simulador.irpf.exception.ValorRendimentoInvalidoException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -47,5 +46,10 @@ public class CadastroDeducoesTest {
         }
     }
 
+    @Test
+    public void deveCadastrarUmaDeducaoDuplicacao(){
+        simulador.cadastrarUmaDeducao("Previdencia privada", 8000F);
+        assertEquals(8000F, simulador.getTotalDeducoes(), 0F);
+    }
 
 }

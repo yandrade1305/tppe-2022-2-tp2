@@ -2,7 +2,6 @@ package br.com.simulador.irpf;
 
 import br.com.simulador.irpf.exception.DescricaoEmBrancoException;
 import br.com.simulador.irpf.exception.ValorDeducaoInvalidoException;
-import br.com.simulador.irpf.exception.ValorRendimentoInvalidoException;
 
 public class Deducao {
     private String descricao;
