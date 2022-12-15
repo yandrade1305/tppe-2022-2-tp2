@@ -23,6 +23,21 @@ public class CadastroRendimentosTest {
     }
 
     @Test
+    public void deveCadastrarDoisRendimentos(){
+        simulador.cadastrarUmRendimento("Salário", 2100F);
+        simulador.cadastrarUmRendimento("Aluguel", 1000F);
+        assertEquals(3100F, simulador.getTotalRendimentos(), 0F);
+    }
+
+    @Test
+    public void deveCadastrarTresRendimentos(){
+        simulador.cadastrarUmRendimento("Salário", 2100F);
+        simulador.cadastrarUmRendimento("Aluguel", 1000F);
+        simulador.cadastrarUmRendimento("Dividendos", 200F);
+        assertEquals(3300F, simulador.getTotalRendimentos(), 0F);
+    }
+
+    @Test
     public void deveCadastrarUmRendimentoFalsificado(){
         simulador.cadastrarUmRendimento("Salário", 2100F);
         assertEquals(2100F, simulador.getTotalRendimentos(), 0F);
@@ -44,6 +59,12 @@ public class CadastroRendimentosTest {
         } catch (ValorRendimentoInvalidoException ex){
             assertEquals("Não foi possível cadastrar um redndimento com valor inválido", ex.getMessage());
         }
+    }
+
+    @Test
+    public void deveCadastrarUmRendimentoDuplicacao(){
+        simulador.cadastrarUmRendimento("Salário", 1300F);
+        assertEquals(1300F, simulador.getTotalRendimentos(), 0F);
     }
 
 }
