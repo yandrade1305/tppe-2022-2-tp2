@@ -27,6 +27,20 @@ public class CadastroDeducoesTest {
         assertEquals(8000F, simulador.getTotalDeducoes(), 0F);
     }
 
+    @Test
+    public void deveCadastrarDuasDeducoes(){
+        simulador.cadastrarUmaDeducao("Previdencia privada", 8000F);
+        simulador.cadastrarUmaDeducao("Funpresp", 11000F);
+        assertEquals(19000F, simulador.getTotalDeducoes(), 0F);
+    }
+
+    @Test
+    public void deveCadastrarTresDeducoes(){
+        simulador.cadastrarUmaDeducao("Previdencia privada", 8000F);
+        simulador.cadastrarUmaDeducao("Funpresp", 11000F);
+        simulador.cadastrarUmaDeducao("Doação", 12000F);
+        assertEquals(31000F, simulador.getTotalDeducoes(), 0F);
+    }
 
     @Test
     public void naoDeveCadastrarUmaDeducaoComDescricaoEmBranco(){
