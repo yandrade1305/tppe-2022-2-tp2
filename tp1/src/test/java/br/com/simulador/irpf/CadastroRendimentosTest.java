@@ -46,4 +46,10 @@ public class CadastroRendimentosTest {
         }
     }
 
+    @Test
+    public void deveCadastrarUmRendimentoDuplicacao(){
+        simulador.cadastrarUmRendimento("Salário", 1300F);
+        assertEquals(1300F, simulador.getTotalRendimentos(), 0F);
+    }
+
 }
