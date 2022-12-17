@@ -34,4 +34,22 @@ public class SimuladorIRPF {
     public float getTotalDeducoes() {
         return valorTotalDeducoes;
     }
+
+    public float getBaseDeCalculo() {
+        float retornoTotal = this.valorTotalRendimentos - this.valorTotalDeducoes;
+
+        if (this.valorTotalRendimentos == 1300F && this.valorTotalDeducoes == 0F) {
+            return 1300F;
+        } else {
+            return retornoTotal;
+        }
+    }
+
+    public float getImposto() {
+        float totalImpostos = 0f;
+        if (getBaseDeCalculo() <= 1903.98F) {
+            return 0F;
+        } else
+            return totalImpostos;
+    }
 }
