@@ -4,15 +4,60 @@ import br.com.simulador.irpf.exception.DescricaoEmBrancoException;
 import br.com.simulador.irpf.exception.ValorDeducaoInvalidoException;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
 import static junit.framework.TestCase.assertEquals;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Collection;
+
+@RunWith(Parameterized.class)
 public class CadastroDeducoesTest {
     SimuladorIRPF simulador;
+
+    Object[][] deducoes;
+    float resultadoEsperado;
 
     @Before
     public void setup() {
         simulador = new SimuladorIRPF();
+    }
+
+    public CadastroDeducoesTest(Object[][] deducoes, float resultadoEsperado){
+        this.deducoes = deducoes;
+        this.resultadoEsperado = resultadoEsperado;
+    }
+
+    @Parameters
+    public static Collection<Object[]> getParameters(){
+        Object[][] parametros = new Object[][]{
+            {new Object[][]{
+                {"Previdencia privada", 8000F}
+            } ,8000F},
+            {new Object[][]{
+                {"Previdencia privada", 8000F},
+                {"Funpresp", 11000F},
+            } ,19000F},
+            {new Object[][]{
+                {"Previdencia privada", 8000F},
+                {"Funpresp", 11000F},
+                {"Doacao", 12000F},
+            } ,31000F},
+        };
+
+        return Arrays.asList(parametros);
+
+    }
+
+    @Test
+    public void deveCadastrarDeducoes(){
+        for(Object[] x : deducoes){
+            simulador.cadastrarUmaDeducao((String)x[0], (float)x[1]);
+        }
+        assertEquals(resultadoEsperado, simulador.getTotalDeducoes(), 0F);
     }
 
     @Test
@@ -21,7 +66,7 @@ public class CadastroDeducoesTest {
         assertEquals(8000F, simulador.getTotalDeducoes(), 0F);
     }
 
-    @Test
+    /*@Test
     public void deveCadastrarUmaDeducao() {
         simulador.cadastrarUmaDeducao("Previdencia privada", 8000F);
         assertEquals(8000F, simulador.getTotalDeducoes(), 0F);
@@ -40,7 +85,7 @@ public class CadastroDeducoesTest {
         simulador.cadastrarUmaDeducao("Funpresp", 11000F);
         simulador.cadastrarUmaDeducao("Doação", 12000F);
         assertEquals(31000F, simulador.getTotalDeducoes(), 0F);
-    }
+    }*/
 
     @Test
     public void naoDeveCadastrarUmaDeducaoComDescricaoEmBranco(){
