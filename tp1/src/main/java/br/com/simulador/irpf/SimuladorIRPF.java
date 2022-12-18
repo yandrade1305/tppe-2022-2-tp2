@@ -46,10 +46,39 @@ public class SimuladorIRPF {
     }
 
     public float getImposto() {
+
+        double LIMITE_FAIXA1 = 1903.98;
+        double LIMITE_FAIXA2 = 922.67;
+        double LIMITE_FAIXA3 = 924.40;
+        double LIMITE_FAIXA4 = 913.63;
+        double LIMITE_FAIXA5 = LIMITE_FAIXA4 + LIMITE_FAIXA3 + LIMITE_FAIXA2 + LIMITE_FAIXA1;
+
+        float baseDeCalculo = getBaseDeCalculo();
         float totalImpostos = 0f;
-        if (getBaseDeCalculo() <= 1903.98F) {
-            return 0F;
-        } else
-            return totalImpostos;
+        double valorDaFaixa = 0F;
+
+        if (baseDeCalculo > LIMITE_FAIXA5) {
+            valorDaFaixa = baseDeCalculo - LIMITE_FAIXA5;
+            totalImpostos += valorDaFaixa * 0.275;
+        }
+
+        if (baseDeCalculo > LIMITE_FAIXA3 + LIMITE_FAIXA2 + LIMITE_FAIXA1) {
+            valorDaFaixa = Math.min(baseDeCalculo - (LIMITE_FAIXA3 + LIMITE_FAIXA2 + LIMITE_FAIXA1), LIMITE_FAIXA4);
+            totalImpostos += valorDaFaixa * 0.225;
+        }
+
+        if (baseDeCalculo > LIMITE_FAIXA2 + LIMITE_FAIXA1) {
+            valorDaFaixa = Math.min(baseDeCalculo - (LIMITE_FAIXA2 + LIMITE_FAIXA1), LIMITE_FAIXA3);
+            totalImpostos += valorDaFaixa * 0.15;
+        }
+
+        if (baseDeCalculo > LIMITE_FAIXA1) {
+
+            valorDaFaixa = Math.min(baseDeCalculo - LIMITE_FAIXA1, LIMITE_FAIXA2);
+            totalImpostos += valorDaFaixa * 0.075;
+
+        }
+
+        return totalImpostos;
     }
 }
