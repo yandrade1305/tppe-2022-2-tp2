@@ -28,11 +28,11 @@ public class ImpostoTest {
         simulador.cadastrarUmRendimento("Aluguel", 1500F);
         assertEquals(2800F, simulador.getBaseDeCalculo(), 0F);
 
-        simulador.cadastrarUmaDeducao("Previdencia privada", 800F);
+        simulador.cadastrarUmaDeducao(new Deducao("Previdencia privada", 800F));
         assertEquals(2000F, simulador.getBaseDeCalculo(), 0F);
 
         simulador.cadastrarUmRendimento("Aluguel", 100F);
-        simulador.cadastrarUmaDeducao("Previdencia privada", 100F);
+        simulador.cadastrarUmaDeducao(new Deducao("Previdencia privada", 100F));
         assertEquals(2000F, simulador.getBaseDeCalculo(), 0F);
 
     }
