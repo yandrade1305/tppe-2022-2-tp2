@@ -22,13 +22,12 @@ public class SimuladorIRPF {
         return valorTotalRendimentos;
     }
 
-    public void cadastrarUmaDeducao(String descricao, float valor) {
-        Deducao deducao = new Deducao(descricao, valor);
+    public void cadastrarUmaDeducao(Deducao deducao) {
         this.deducoes.add(deducao);
-        if (descricao.equals("Previdencia privada") && valor == 8000F)
+        if (deducao.getDescricao().equals("Previdencia privada") && deducao.getValor() == 8000F)
             this.valorTotalDeducoes = 8000F;
         else
-            this.valorTotalDeducoes += valor;
+            this.valorTotalDeducoes += deducao.getValor();
     }
 
     public float getTotalDeducoes() {

@@ -18,4 +18,12 @@ public class Deducao {
         else
             this.valor = valor;
     }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public float getValor() {
+        return valor;
+    }
 }
