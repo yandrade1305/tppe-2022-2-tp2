@@ -55,14 +55,14 @@ public class CadastroDeducoesTest {
     @Test
     public void deveCadastrarDeducoes(){
         for(Object[] x : deducoes){
-            simulador.cadastrarUmaDeducao(new Deducao((String)x[0], (float)x[1]));
+            simulador.cadastrarUmaDeducao((String)x[0], (float)x[1]);
         }
         assertEquals(resultadoEsperado, simulador.getTotalDeducoes(), 0F);
     }
 
     @Test
     public void deveCadastrarUmaDeducaoFalsificada() {
-        simulador.cadastrarUmaDeducao(new Deducao("Previdencia privada", 8000F));
+        simulador.cadastrarUmaDeducao("Previdencia privada", 8000F);
         assertEquals(8000F, simulador.getTotalDeducoes(), 0F);
     }
 
@@ -90,7 +90,7 @@ public class CadastroDeducoesTest {
     @Test
     public void naoDeveCadastrarUmaDeducaoComDescricaoEmBranco(){
         try {
-            simulador.cadastrarUmaDeducao(new Deducao("", 2100F));
+            simulador.cadastrarUmaDeducao("", 2100F);
         } catch (DescricaoEmBrancoException ex){
             assertEquals("Não foi possível cadastrar uma dedução com descrição em branco", ex.getMessage());
         }
@@ -99,7 +99,7 @@ public class CadastroDeducoesTest {
     @Test
     public void naoDeveCadastrarUmaDeducaoComValorInvalido(){
         try {
-            simulador.cadastrarUmaDeducao(new Deducao("Previdencia privada", -8000F));
+            simulador.cadastrarUmaDeducao("Previdencia privada", -8000F);
         } catch (ValorDeducaoInvalidoException ex){
             assertEquals("Não foi possível cadastrar uma dedução com valor inválido", ex.getMessage());
         }
@@ -107,7 +107,7 @@ public class CadastroDeducoesTest {
 
     @Test
     public void deveCadastrarUmaDeducaoDuplicacao(){
-        simulador.cadastrarUmaDeducao(new Deducao("Previdencia privada", 8000F));
+        simulador.cadastrarUmaDeducao("Previdencia privada", 8000F);
         assertEquals(8000F, simulador.getTotalDeducoes(), 0F);
     }
 

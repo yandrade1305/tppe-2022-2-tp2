@@ -21,7 +21,8 @@ public class SimuladorIRPF {
         return valorTotalRendimentos;
     }
 
-    public void cadastrarUmaDeducao(Deducao deducao) {
+    public void cadastrarUmaDeducao(String descricao, float valor) {
+        Deducao deducao = new Deducao(descricao, valor);
         this.deducoes.add(deducao);
         this.valorTotalDeducoes += deducao.getValor();
     }
