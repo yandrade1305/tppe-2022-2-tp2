@@ -40,12 +40,7 @@ public class SimuladorIRPF {
     public void cadastrarPensaoAlimenticia(float valor) {
         PensaoAlimenticia pensaoAlimenticia = new PensaoAlimenticia(valor);
         this.deducoes.add(pensaoAlimenticia);
-        if(deducoes.size() > 1 && deducoes.get(0).getValor() == 325f && deducoes.get(1).getValor() == 210.25f){
-            this.valorTotalDeducoes = 335.25f;
-        }
-        if(deducoes.get(0).getValor() == 210.25f){
-            this.valorTotalDeducoes = 210.25f;
-        }
+        this.valorTotalDeducoes += pensaoAlimenticia.getValor();
     }
 
     public float getBaseDeCalculo() {
