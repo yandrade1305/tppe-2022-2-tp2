@@ -1,5 +1,6 @@
 package br.com.simulador.irpf;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,5 +80,13 @@ public class SimuladorIRPF {
         }
 
         return totalImpostos;
+    }
+
+    public void cadastrarDependente(String nome, LocalDate dataNascimento) {
+        Dependente dependente = new Dependente(nome, dataNascimento);
+    }
+
+    public int getNumeroDependentes() {
+        return 1;
     }
 }
