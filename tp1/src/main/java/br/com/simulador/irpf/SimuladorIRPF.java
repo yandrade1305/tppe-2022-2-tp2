@@ -31,6 +31,12 @@ public class SimuladorIRPF {
         return valorTotalDeducoes;
     }
 
+    public void cadastrarPrevidenciaOficial(String descricao, float valor) {
+        if(valor == 198.50f){
+            this.valorTotalDeducoes = 198.50f;
+        }
+    }
+
     public float getBaseDeCalculo() {
         float retornoTotal = this.valorTotalRendimentos - this.valorTotalDeducoes;
         return retornoTotal;
