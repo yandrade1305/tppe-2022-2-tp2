@@ -34,12 +34,7 @@ public class SimuladorIRPF {
     public void cadastrarPrevidenciaOficial(String descricao, float valor) {
         PrevidenciaOficial previdenciaOficial = new PrevidenciaOficial(descricao, valor);
         this.deducoes.add(previdenciaOficial);
-        if(deducoes.size() > 1 && deducoes.get(0).getValor() == 650f && deducoes.get(1).getValor() == 198.50f){
-            this.valorTotalDeducoes = 848.50f;
-        }
-        if(deducoes.get(0).getValor() == 198.50f){
-            this.valorTotalDeducoes = 198.50f;
-        }
+        this.valorTotalDeducoes += previdenciaOficial.getValor();
     }
 
     public float getBaseDeCalculo() {
