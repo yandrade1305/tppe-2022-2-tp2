@@ -14,10 +14,7 @@ public class SimuladorIRPF {
     public void cadastrarUmRendimento(String descricao, float valor) {
         Rendimento rendimento = new Rendimento(descricao, valor);
         this.rendimentos.add(rendimento);
-        if (descricao.equals("Salário") && valor == 2100F)
-            this.valorTotalRendimentos = 2100F;
-        else
-            this.valorTotalRendimentos += valor;
+        this.valorTotalRendimentos += valor;
     }
 
     public float getTotalRendimentos() {
@@ -26,10 +23,7 @@ public class SimuladorIRPF {
 
     public void cadastrarUmaDeducao(Deducao deducao) {
         this.deducoes.add(deducao);
-        if (deducao.getDescricao().equals("Previdencia privada") && deducao.getValor() == 8000F)
-            this.valorTotalDeducoes = 8000F;
-        else
-            this.valorTotalDeducoes += deducao.getValor();
+        this.valorTotalDeducoes += deducao.getValor();
     }
 
     public float getTotalDeducoes() {
@@ -38,12 +32,7 @@ public class SimuladorIRPF {
 
     public float getBaseDeCalculo() {
         float retornoTotal = this.valorTotalRendimentos - this.valorTotalDeducoes;
-
-        if (this.valorTotalRendimentos == 1300F && this.valorTotalDeducoes == 0F) {
-            return 1300F;
-        } else {
-            return retornoTotal;
-        }
+        return retornoTotal;
     }
 
     public float getImposto() {
