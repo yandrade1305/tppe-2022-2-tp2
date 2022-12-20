@@ -1,5 +1,7 @@
 package br.com.simulador.irpf;
 
+import br.com.simulador.irpf.exception.DescricaoEmBrancoException;
+import br.com.simulador.irpf.exception.NomeEmBrancoException;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -55,5 +57,14 @@ public class CadastroDependenteTest {
             simulador.cadastrarDependente((String)x[0], (LocalDate) x[1]);
         }
         assertEquals(resultadoEsperado, simulador.getNumeroDependentes());
+    }
+
+    @Test
+    public void naoDeveCadastrarUmDependenteComNomeEmBranco(){
+        try {
+            simulador.cadastrarDependente("", LocalDate.of(1980, 2, 18));
+        } catch (NomeEmBrancoException ex){
+            assertEquals("Não foi possível cadastrar um dependente com nome em branco", ex.getMessage());
+        }
     }
 }
