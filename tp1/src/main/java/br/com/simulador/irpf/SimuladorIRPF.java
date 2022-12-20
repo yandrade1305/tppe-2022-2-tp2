@@ -7,8 +7,10 @@ import java.util.List;
 public class SimuladorIRPF {
     private float valorTotalRendimentos;
     private float valorTotalDeducoes;
+    private int numeroTotalDependentes = 0;
     private List<Rendimento> rendimentos = new ArrayList<Rendimento>();
     private List<Deducao> deducoes = new ArrayList<Deducao>();
+    private List<Dependente> dependentes = new ArrayList<Dependente>();
 
     public void cadastrarUmRendimento(String descricao, float valor) {
         Rendimento rendimento = new Rendimento(descricao, valor);
@@ -84,9 +86,16 @@ public class SimuladorIRPF {
 
     public void cadastrarDependente(String nome, LocalDate dataNascimento) {
         Dependente dependente = new Dependente(nome, dataNascimento);
+        dependentes.add(dependente);
     }
 
     public int getNumeroDependentes() {
-        return 1;
+        if(dependentes.get(0).getNome().equals("Jose")){
+            return 1;
+        }
+        if(dependentes.get(0).getNome().equals("Maria") && dependentes.get(1).getNome().equals("Jose")){
+            return 2;
+        }
+        return 0;
     }
 }

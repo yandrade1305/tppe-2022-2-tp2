@@ -20,4 +20,10 @@ public class CadastroDependenteTest {
         simulador.cadastrarDependente("Jose", LocalDate.of(2000, 11, 14));
         assertEquals(1, simulador.getNumeroDependentes());
     }
+    @Test
+    public void deveCadastrarDoisDependentes() {
+            simulador.cadastrarDependente("Maria", LocalDate.of(2000, 11, 14));
+        simulador.cadastrarDependente("Jose", LocalDate.of(2002, 8, 21));
+        assertEquals(2, simulador.getNumeroDependentes());
+    }
 }

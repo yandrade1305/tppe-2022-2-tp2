@@ -14,4 +14,12 @@ public class Dependente {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
+    }
 }
