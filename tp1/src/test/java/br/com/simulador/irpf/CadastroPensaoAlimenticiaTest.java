@@ -18,4 +18,11 @@ public class CadastroPensaoAlimenticiaTest {
         simulador.cadastrarPensaoAlimenticia(210.25f);
         assertEquals(210.25f, simulador.getTotalDeducoes(), 0F);
     }
+
+    @Test
+    public void deveCadastrarDuasPensoesAlimenticias() {
+        simulador.cadastrarPensaoAlimenticia(325f);
+        simulador.cadastrarPensaoAlimenticia(210.25f);
+        assertEquals(335.25f, simulador.getTotalDeducoes(), 0F);
+    }
 }
