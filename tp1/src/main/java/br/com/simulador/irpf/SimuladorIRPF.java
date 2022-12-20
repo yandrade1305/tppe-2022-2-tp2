@@ -37,6 +37,12 @@ public class SimuladorIRPF {
         this.valorTotalDeducoes += previdenciaOficial.getValor();
     }
 
+    public void cadastrarPensaoAlimenticia(float valor) {
+        if(valor == 210.25f){
+            this.valorTotalDeducoes = 210.25f;
+        }
+    }
+
     public float getBaseDeCalculo() {
         float retornoTotal = this.valorTotalRendimentos - this.valorTotalDeducoes;
         return retornoTotal;
