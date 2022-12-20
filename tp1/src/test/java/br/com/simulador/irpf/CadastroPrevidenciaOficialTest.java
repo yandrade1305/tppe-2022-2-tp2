@@ -15,7 +15,7 @@ public class CadastroPrevidenciaOficialTest {
 
     @Test
     public void deveCadastrarUmaPrevidenciaOficial() {
-        simulador.cadastrarPrevidenciaOficial(198.50f);
+        simulador.cadastrarPrevidenciaOficial("Aposentadoria por idade",198.50f);
         assertEquals(198.50f, simulador.getTotalDeducoes(), 0F);
     }
 }
