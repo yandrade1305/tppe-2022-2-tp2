@@ -7,7 +7,6 @@ import java.util.List;
 public class SimuladorIRPF {
     private float valorTotalRendimentos;
     private float valorTotalDeducoes;
-    private int numeroTotalDependentes = 0;
     private List<Rendimento> rendimentos = new ArrayList<Rendimento>();
     private List<Deducao> deducoes = new ArrayList<Deducao>();
     private List<Dependente> dependentes = new ArrayList<Dependente>();
@@ -90,12 +89,6 @@ public class SimuladorIRPF {
     }
 
     public int getNumeroDependentes() {
-        if(dependentes.get(0).getNome().equals("Jose")){
-            return 1;
-        }
-        if(dependentes.get(0).getNome().equals("Maria") && dependentes.get(1).getNome().equals("Jose")){
-            return 2;
-        }
-        return 0;
+        return dependentes.size();
     }
 }
