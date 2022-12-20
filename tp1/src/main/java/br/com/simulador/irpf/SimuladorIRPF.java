@@ -86,6 +86,7 @@ public class SimuladorIRPF {
     public void cadastrarDependente(String nome, LocalDate dataNascimento) {
         Dependente dependente = new Dependente(nome, dataNascimento);
         dependentes.add(dependente);
+        this.valorTotalDeducoes += 189.59f;
     }
 
     public int getNumeroDependentes() {
