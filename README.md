@@ -11,3 +11,21 @@ Repositório destinado ao TP1 da disciplina de TPPE
 | Joao Gabriel de Campos de Matos | 180042238 |
 | Savio Cunha de Carvalho | 180130889 |
 | Yan Andrade de Sena | 180145363 |
+
+## Intruções
+
+Para rodar nosso projeto deverá realizar o clone do repositório
+
+``
+git clone https://github.com/yandrade1305/tppe-2022-2-tp1.git
+``
+
+Após isso, precisa ter instalado e configurado o Maven e também Java. Sugerimos também uma IDE a sua escolha (Eclipse ou IntelliJ)
+
+Para rodar os testes pelo terminal basta executar o comando: 
+
+``
+mvn test
+``
+
+na pasta raiz do projeto
