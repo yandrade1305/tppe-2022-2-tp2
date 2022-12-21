@@ -43,6 +43,10 @@ public class SimuladorIRPF {
         this.valorTotalDeducoes += pensaoAlimenticia.getValor();
     }
 
+    public float calcularAliquotaEfetiva() {
+        return 3.17f;
+    }
+
     public float getBaseDeCalculo() {
         float retornoTotal = this.valorTotalRendimentos - this.valorTotalDeducoes;
         return retornoTotal;

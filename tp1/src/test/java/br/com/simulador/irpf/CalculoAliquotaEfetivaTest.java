@@ -18,6 +18,6 @@ public class CalculoAliquotaEfetivaTest {
     public void deveCalcularAliquotaEfetivaComUmRendimento() {
         simulador.cadastrarUmRendimento("Salario", 3000f);
         float aliquotaEfetiva = simulador.calcularAliquotaEfetiva();
-        assertEquals(3.17, aliquotaEfetiva);
+        assertEquals(3.17f, aliquotaEfetiva, 0f);
     }
 }
