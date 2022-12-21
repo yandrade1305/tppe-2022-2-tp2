@@ -44,6 +44,9 @@ public class SimuladorIRPF {
     }
 
     public float calcularAliquotaEfetiva() {
+        if(dependentes.size() > 0){
+            return 2.26f;
+        }
         return 3.17f;
     }
 
