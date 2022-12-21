@@ -44,10 +44,9 @@ public class SimuladorIRPF {
     }
 
     public float calcularAliquotaEfetiva() {
-        if(dependentes.size() > 0){
-            return 2.26f;
-        }
-        return 3.17f;
+        float imposto = getImposto();
+        float aliquotaEfetiva = (float)(Math.floor(imposto/this.getTotalRendimentos() * 10000) / 100.0f);
+        return aliquotaEfetiva;
     }
 
     public float getBaseDeCalculo() {
