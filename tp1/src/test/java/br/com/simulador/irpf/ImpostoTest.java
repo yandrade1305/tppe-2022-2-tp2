@@ -34,7 +34,7 @@ public class ImpostoTest {
         simulador.cadastrarUmRendimento("Aluguel", 100F);
         simulador.cadastrarUmaDeducao("Previdencia privada", 100F);
         assertEquals(2000F, simulador.getBaseDeCalculo(), 0F);
-
+        
     }
 
     @Test
@@ -42,7 +42,30 @@ public class ImpostoTest {
         simulador.cadastrarUmRendimento("Salário", 1300F);
         assertEquals(0F, simulador.getImposto(), 0F);
     }
+    
+    @Test
+    public void deveRetornarTotalImpostosFaixa2() {
+    	simulador.cadastrarUmRendimento("Salário", 2600);
+    	assertEquals(52.2015F, simulador.getImposto(), 0F);
+    }
+    
+    @Test
+    public void deveRetornarTotalImpostosFaixa3() {
+    	simulador.cadastrarUmRendimento("Salário", 3500);
+    	assertEquals(170.20276F, simulador.getImposto(), 0F);
+    }
 
+    @Test
+    public void deveRetornarTotalImpostosFaixa4() {
+    	simulador.cadastrarUmRendimento("Salário", 4000);
+    	assertEquals(263.874F, simulador.getImposto(), 0F);
+    }
+    
+    @Test
+    public void deveRetornarTotalImpostosFaixa5() {
+    	simulador.cadastrarUmRendimento("Salário", 5000);
+    	assertEquals(505.64F, simulador.getImposto(), 0F);
+    }
     @Test
     public void deveRetornarTotalImpostoFaixa1Duplicado() {
 
@@ -56,4 +79,5 @@ public class ImpostoTest {
         assertEquals(0F, simulador.getImposto(), 0F);
 
     }
+    
 }
