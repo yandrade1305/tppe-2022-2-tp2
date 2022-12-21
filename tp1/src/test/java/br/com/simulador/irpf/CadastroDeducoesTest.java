@@ -77,11 +77,4 @@ public class CadastroDeducoesTest {
             assertEquals("Não foi possível cadastrar uma dedução com valor inválido", ex.getMessage());
         }
     }
-
-    @Test
-    public void deveCadastrarUmaDeducaoDuplicacao(){
-        simulador.cadastrarUmaDeducao("Previdencia privada", 8000F);
-        assertEquals(8000F, simulador.getTotalDeducoes(), 0F);
-    }
-
 }
