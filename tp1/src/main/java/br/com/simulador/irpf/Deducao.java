@@ -8,7 +8,7 @@ public class Deducao {
     private float valor;
 
     public Deducao(String descricao, float valor) {
-        if (descricao.isBlank())
+        if (descricao != null && descricao.isBlank())
             throw new DescricaoEmBrancoException("Não foi possível cadastrar uma dedução com descrição em branco");
         else
             this.descricao = descricao;

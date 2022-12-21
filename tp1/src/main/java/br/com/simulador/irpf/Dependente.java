@@ -10,7 +10,7 @@ public class Dependente extends Deducao {
 
     public Dependente(String nome, LocalDate dataNascimento) {
         super("Dependente", 189.59f);
-        if(nome.isBlank())
+        if(nome != null && nome.isBlank())
             throw new NomeEmBrancoException("Não foi possível cadastrar um dependente com nome em branco");
         this.nome = nome;
         this.dataNascimento = dataNascimento;

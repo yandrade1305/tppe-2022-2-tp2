@@ -8,7 +8,7 @@ public class Rendimento {
     private float valor;
 
     public Rendimento(String descricao, float valor) {
-        if (descricao.isBlank())
+        if (descricao != null && descricao.isBlank())
             throw new DescricaoEmBrancoException("Não foi possível cadastrar um rendimento com descrição em branco");
         else
             this.descricao = descricao;
