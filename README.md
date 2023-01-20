@@ -1,4 +1,4 @@
-# tppe-2022-2-tp1
+# tppe-2022-2-tp2
 Repositório destinado ao TP1 da disciplina de TPPE 
 
 ## Integrantes do grupo
