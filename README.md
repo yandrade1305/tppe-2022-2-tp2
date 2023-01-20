@@ -17,7 +17,7 @@ Repositório destinado ao TP1 da disciplina de TPPE
 Para rodar nosso projeto deverá realizar o clone do repositório
 
 ``
-git clone https://github.com/yandrade1305/tppe-2022-2-tp1.git
+git clone https://github.com/yandrade1305/tppe-2022-2-tp2.git
 ``
 
 Após isso, precisa ter instalado e configurado o Maven e também Java. Sugerimos também uma IDE a sua escolha (Eclipse ou IntelliJ)
